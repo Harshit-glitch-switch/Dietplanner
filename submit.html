@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Selection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('set.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .meal-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .meal-option {
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .meal-option:hover {
+            transform: translateY(-5px);
+        }
+        .meal-option img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #2c3e50;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + label {
+            color: #3498db;
+        }
+        .confirm-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        .confirm-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Your Meal Type</h1>
+        <form id="mealForm">
+            <div class="meal-options">
+                <div class="meal-option">
+                    <img src="veg.jpg" alt="Vegetarian Meal">
+                    <input type="radio" id="vegetarian" name="meal-type" value="vegetarian">
+                    <label for="vegetarian">Vegetarian</label>
+                </div>
+                <div class="meal-option">
+                    <img src="non.jpg" alt="Non-Vegetarian Meal">
+                    <input type="radio" id="non-vegetarian" name="meal-type" value="non-vegetarian">
+                    <label for="non-vegetarian">Non-Vegetarian</label>
+                </div>
+                <div class="meal-option">
+                    <img src="vegan.jpg" alt="Vegan Meal">
+                    <input type="radio" id="vegan" name="meal-type" value="vegan">
+                    <label for="vegan">Vegan</label>
+                </div>
+            </div>
+            <button type="submit" class="confirm-button">Confirm Selection</button>
+        </form>
+    </div>
+
+    <script>
+        const mealOptions = document.querySelectorAll('.meal-option');
+        const form = document.getElementById('mealForm');
+
+        mealOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const radio = option.querySelector('input[type="radio"]');
+                radio.checked = true;
+            });
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const selectedMeal = document.querySelector('input[name="meal-type"]:checked');
+            if (selectedMeal) {
+                if (selectedMeal.value === 'vegetarian') {
+                   
+                    window.location.href = 'Veg meal.html';
+                }
+                else if (selectedMeal.value === 'non-vegetarian') {
+                    
+                    window.location.href = 'nonveg.html';
+                }  else {
+                   
+                    alert(`You selected: ${selectedMeal.value}. This meal plan is not available yet.`);
+                }
+            } else {
+                alert('Please select a meal type');
+            }
+        });
+    </script>
+</body>
+</html>

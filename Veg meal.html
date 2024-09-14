@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetarian Meal Plan for a Slim Body</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .meal {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .meal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .meal-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .meal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .key-points {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vegetarian Meal Plan for Maintaining a Slim Body</h1>
+
+    <div class="meal">
+        <h2>Morning Routine (6:30 AM – 7:00 AM)</h2>
+        <div class="meal-image">
+            <img src="lemon.jpg" alt="Lemon Water">
+        </div>
+        <ul>
+            <li>1 glass of warm water with half a lemon squeezed in</li>
+            <li>Optional: Add 1 tsp honey</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Breakfast (7:30 AM – 8:00 AM)</h2>
+        <div class="meal-image">
+            <img src="oats.jpg" alt="Oats Porridge">
+        </div>
+        <ul>
+            <li>1/2 cup oats cooked in almond milk or low-fat milk</li>
+            <li>Toppings: 1 tbsp chia seeds, 1 tbsp flax seeds, mixed fruits</li>
+            <li>1 cup of green tea</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Mid-Morning Snack (10:30 AM)</h2>
+        <div class="meal-image">
+            <img src="nuts.jpg" alt="Nuts">
+        </div>
+        <ul>
+            <li>1 apple or a handful of almonds (10-12 pieces) or walnuts (5-6 pieces)</li>
+            <li>1 glass of water (can add cucumber or mint for flavor)</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Lunch (1:00 PM – 1:30 PM)</h2>
+        <div class="meal-image">
+            <img src="salad.jpg" alt="Quinoa Salad">
+        </div>
+        <ul>
+            <li>1 cup cooked quinoa with mixed vegetables and chickpeas</li>
+            <li>2 tbsp hummus on the side</li>
+            <li>1 glass of low-fat buttermilk</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Evening Snack (4:00 PM)</h2>
+        <div class="meal-image">
+            <img src="yogurt.jpg" alt="Yogurt with Vegetable Sticks">
+        </div>
+        <ul>
+            <li>Carrot, cucumber, and bell pepper sticks</li>
+            <li>Greek yogurt dip with herbs</li>
+            <li>1 cup of herbal tea or black coffee (without sugar)</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Dinner (7:00 PM – 7:30 PM)</h2>
+        <div class="meal-image">
+            <img src="tofu.jpg" alt="Tofu Stir Fry">
+        </div>
+        <ul>
+            <li>Vegetable stir fry with tofu</li>
+            <li>1/2 cup of brown rice or quinoa</li>
+            <li>Mixed leaf salad</li>
+        </ul>
+    </div>
+
+    <div class="meal">
+        <h2>Post-Dinner (8:30 PM)</h2>
+        <div class="meal-image">
+            <img src="milk,jpg.jpg" alt="Warm Milk">
+        </div>
+        <ul>
+            <li>1 cup of chamomile tea or warm almond milk with a pinch of turmeric</li>
+        </ul>
+    </div>
+
+    <div class="key-points">
+        <h2>Key Points:</h2>
+        <ul>
+            <li>Hydration: Drink 8–10 glasses of water throughout the day</li>
+            <li>Portion Control: Stick to smaller portions to avoid overeating</li>
+            <li>Balanced Macronutrients: Ensure a good mix of protein, healthy fats, and complex carbs at each meal</li>
+            <li>Fiber-Rich Foods: Vegetables, fruits, and whole grains will keep you full longer and improve digestion</li>
+        </ul>
+    </div>
+
+    <script>
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function animateOnScroll() {
+            var meals = document.querySelectorAll('.meal');
+            meals.forEach(function(meal) {
+                if (isElementInViewport(meal)) {
+                    meal.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
